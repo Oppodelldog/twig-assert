@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Oppodelldog\\TwigExtension\\Assert\\": "src/",
+      "Oppodelldog\\TwigExtension\\Assert\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5"
+  },
+  "require": {
+    "php": ">=7.2",
+    "twig/twig": "^2.0"
+  }
+}

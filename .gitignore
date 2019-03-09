@@ -1,0 +1,7 @@
+vendor
+.idea
+tests/Playground/data
+.bin/*
+!.bin/droxy.toml
+composer.lock
+composer.phar

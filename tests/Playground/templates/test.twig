@@ -1,0 +1,13 @@
+<h4>valid assertion</h4>
+
+{% assert my_view_variable "\\Oppodelldog\\TwigExtension\\Assert\\Tests\\Playground\\ViewModel" %}
+
+{{ my_view_variable.getText() }}
+
+
+
+<h4>invalid assertion</h4>
+
+{% assert my_view_variable "Somethingdfg Else" %}
+
+{{ my_view_variable.getText() }}

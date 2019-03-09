@@ -1,0 +1,44 @@
+Version="1"
+
+[[command]]
+    isTemplate=true
+    name="basic-php-command"
+    entrypoint="php"
+    removeContainer=true
+    impersonate=true
+    workDir="${PWD}"
+    volumes=[
+        "/tmp:/tmp",
+        "${PWD}:${PWD}",
+        "${HOME}:${HOME}"
+    ]
+
+[[command]]
+    name="php7.2"
+    image="php7.2"
+    template="basic-php-command"
+    envvars=[
+        "XDEBUG_CONFIG=${XDEBUG_CONFIG}"
+    ]
+    replaceArgs=[
+        [
+            "-dxdebug.remote_host=127.0.0.1",
+            "-dxdebug.remote_host=172.17.0.1",
+        ]
+    ]
+
+[[command]]
+    name="composer"
+    image="php7.2"
+    template="basic-php-command"
+    command="composer.phar"
+
+[[command]]
+    name="server"
+    image="php7.2"
+    template="basic-php-command"
+    ports=["8080:8080"]
+    workDir="${PWD}/tests/Playground"
+    isinteractive=true
+    command="-S"
+    additionalArgs = ["0.0.0.0:8080","index.php"]
