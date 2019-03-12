@@ -2,9 +2,10 @@
 
 {% assert my_view_variable "\\Oppodelldog\\TwigExtension\\Assert\\Tests\\Playground\\ViewModel" %}
 
-{{ my_view_variable.getText() }}
+{{ my_view_variable.setText("Hello WÖRLD") }}
+{{ my_view_variable.getText()}}
 
-
+{{ my_view_variable }}
 
 <h4>invalid assertion</h4>
 

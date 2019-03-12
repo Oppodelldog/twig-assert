@@ -6,6 +6,7 @@ class ViewModel
 {
     private $text = 'view model text';
 
+
     /**
      * @return string
      */
@@ -20,5 +21,9 @@ class ViewModel
     public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    protected function getProtectedData():string{
+        return "you should not get it from twig";
     }
 }
