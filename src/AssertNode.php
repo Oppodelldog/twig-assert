@@ -36,7 +36,11 @@ class AssertNode extends Twig_Node
 
         $compiler
             ->addDebugInfo($this)
-            ->write('if(get_class(')
+            ->write('if(')
+            ->subcompile($this->getNode('viewVariable'))
+            ->write('!==null')
+            ->write('&&')
+            ->write('get_class(')
             ->subcompile($this->getNode('viewVariable'))
             ->raw(')==')
             ->raw($expectedFQCNClass)
